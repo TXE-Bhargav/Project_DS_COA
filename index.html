@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - COA & DS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100vw;
+            overflow: auto;
+        }
+
+        .header {
+            height: 25%;
+            width: 100vw;
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid black;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .head-text {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            height: 50%;
+            width: 100vw;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        .left-content {
+            background: #3d3d3d;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 50%;
+        }
+
+        .right-content {
+            padding: 5px;
+            height: 100%;
+            width: 50%;
+            float: left;
+            border-left: 2px solid rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #3d3d3d;
+        }
+
+
+        .card {
+            position: relative;
+            width: 350px;
+            aspect-ratio: 16/9;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1000px;
+            box-shadow: 0 0 0 5px #ffffff80;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card svg {
+            width: 48px;
+            fill: #333;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .card__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            transform: rotateX(-90deg);
+            transform-origin: bottom;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover .card__content {
+            transform: rotateX(0deg);
+        }
+
+        .card__title {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .card:hover svg {
+            scale: 0;
+        }
+
+        .card__description {
+            margin: 10px 0 10px;
+            font-size: 12px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .card__button {
+            padding: 15px;
+            border-radius: 8px;
+            background: #777;
+            border: none;
+            color: white;
+        }
+
+        .secondary {
+            background: transparent;
+            color: #777;
+            border: 1px solid #777;
+        }
+
+        .description {
+            display: flex;
+            height: 40%;
+            width: 100vw;
+            text-align: justify;
+            text-justify: inter-word;
+            /* Apply justification */
+        }
+
+        #COA-des {
+            border-right: 2px solid black;
+            padding-right: 25px;
+        }
+
+        .description {
+            display: flex;
+            height: 40%;
+            width: 100vw;
+            justify-content: space-between;
+            /* Distribute space evenly between elements */
+            align-items: center;
+            /* Center align items vertically */
+        }
+
+        .des {
+            width: 50%;
+            /* Each description takes up half of the container */
+            margin: 10px;
+        }
+
+        #COA-des {
+            border-right: 2px solid black;
+            padding-right: 25px;
+            margin-left: 30px;
+        }
+
+
+        .description h1,
+        .description h3 {
+            margin: 0;
+            /* Remove default margins */
+            padding: 5px;
+            /* Add padding to headings */
+            text-align: center;
+        }
+
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #3d3d3d;
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="head">
+                <img src="../COA/logo.png" alt="" width="70px">
+                <h1>C.Z.M.GOSRANI BCA COLLEGE</h1>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left-content">
+                <div class="card">
+                    <h1>COA</h1>
+                    <div class="card__content">
+                        <p class="card__title"><u>Logical AND Gate</u></p>
+                        <p class="card__description">A logical AND gate outputs 1 only when both inputs are 1;
+                            otherwise, it outputs 0. It's a fundamental component in digital circuits for combining
+                            binary signals.</p>
+                        <button id="coaButton" class="card__button" >Live
+                            Demo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="card">
+                    <h1>DSA</h1>
+                    <div class="card__content">
+                        <p class="card__title"><u>Singly Linked List</u></p>
+                        <p class="card__description">A singly linked list is a fundamental data structure consisting of
+                            a sequence of elements, known as nodes, where each node contains a piece of data and a
+                            reference (or pointer) to the next node in the sequence.</p>
+                        <button  id="dsButton"class="card__button" >Live
+                            Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="description">
+            <div class="des" id="COA-des">
+                <u>
+                    <h1>COA: Logical AND Gate</h1>
+                </u>
+                <h3>The COA (Computer Organization and Architecture) project focuses on the implementation and
+                    understanding of logical AND gates in digital circuits. A logical AND gate is a fundamental
+                    component that outputs 1 only when both input signals are 1; otherwise, it outputs 0. This project
+                    explores the principles behind AND gates and their applications in digital electronics.
+                </h3><br>
+            </div>
+            <div class="des" id="DS-des">
+                <u>
+                    <h1>DSA: Singly Linked List</h1>
+                </u>
+                <h3>The DSA (Data Structures and Algorithms) project involves the implementation and exploration of
+                    singly linked lists. A singly linked list is a fundamental data structure consisting of nodes where
+                    each node contains data and a reference to the next node. This project delves into the operations
+                    and applications of singly linked lists, such as insertion, deletion, traversal, and searching,
+                    providing insights into efficient data storage and manipulation techniques.
+                </h3><br>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="hd"><u>
+                    <h1>Team Members</h1>
+                </u>
+                <span>
+                    <h4>Hasmita Chavda.</h4>
+                </span>
+                <span>
+                    <h4>Kumkum Kandoriya.</h4>
+                </span>
+                <span>
+                    <h4>Barkatkhan Lodin.</h4>
+                </span>
+                <span>
+                    <h4>Bhargav Panchmatiya.</h4>
+                </span>
+                <span>
+                    <h4>Aditya Majithiya.</h4>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to redirect to COA index.html
+        document.getElementById("coaButton").onclick = function () {
+            redirectTo("COA/index.html");
+        };
+
+        // Function to redirect to DS index.html
+        document.getElementById("dsButton").onclick = function () {
+            redirectTo("DS/index.html");
+        };
+        function redirectTo(path) {
+            window.location.href = path; // Redirect to the specified path
+        }
+
+    </script>
+</body>
+
+</html>

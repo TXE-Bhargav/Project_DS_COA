@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AND Gate - Project</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="head"><img src="logo.png" alt="" width="70px">
+                <h1>C.Z.M.GOSRANI BCA COLLEGE</h1>
+            </div>
+            <div class="info">
+                <div class="head-text">
+                    <h2>COA Project : Logical AND Gate</h3><br>
+                       <u> <h3>Fecalty Incharge : Imran  Modi Sir</h4></u><br>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="contant">
+            <div class="main-contant">
+                <div class="image"><img src="AND.jpg" alt="" width="500" height="300"></div>
+                <div class="input">
+                    <table class="truth-table">
+                        <thead>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>to check the output</th>
+                        </thead>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <th><button onclick="no()">input</button></th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <th><button onclick="no()">input</button></th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <th><button onclick="no()">input</button></th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <th><button onclick="yes()">input</button></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bulb">
+                    <img id="image" src="pngwing.com.png" alt="" ><span id="off">Off</span>
+                </div>
+            </div>
+            <div class="algorithem">
+                <!-- <div class="text-of-main-contant"> <h3>Algorithem of AND Gate</h3></div> -->
+                <h3>Truth Table Of AND Gate</h3><br>
+                <table border="2">
+                    <thead>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>Output</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <div class="description">
+            <div class="des">
+                <u>
+                    <h1>Algorithm</h1>
+                </u>
+                <h3>The logical AND gate is a fundamental component in digital logic circuits. It takes two binary
+                    inputs, usually labeled as A and B, and produces an output based on the logical AND operation. The
+                    output is HIGH (1) only when both inputs are HIGH (1); otherwise, the output is LOW (0).</h3><br>
+            </div>
+            <div class="steps">
+                <table border="2">
+                    <thead>
+                        <th>Steps</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Step 1</td>
+                            <td>Start.</td>
+                        </tr>
+                        <tr>
+                            <td>Step 2</td>
+                            <td>Accept two binary inputs, A and B.</td>
+                        </tr>
+                        <tr>
+                            <td>Step 3</td>
+                            <td>Check if both inputs A and B are HIGH (1).</td>
+                        </tr>
+                        <tr>
+                            <td>Step 4</td>
+                            <td>If yes, set the output to HIGH (1).</td>
+                        </tr>
+                        <tr>
+                            <td>Step 5</td>
+                            <td>If no, set the output to LOW (0)</td>
+                        </tr>
+                        <tr>
+                            <td>Step 6</td>
+                            <td>Output the result.</td>
+                        </tr>
+                        <tr>
+                            <td>Step 7</td>
+                            <td>End.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="hd"><u><h1>Team Members</h1></u>
+                <span><h4>Hasmita Chavda.</h4></span>
+                <span><h4>Kumkum Kandoriya.</h4></span>
+                <span><h4>Barkatkhan Lodin.</h4></span>
+                <span><h4>Bhargav Panchmatiya.</h4></span>
+                <span><h4>Aditya Majithiya.</h4></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
