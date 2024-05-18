@@ -1,4 +1,4 @@
-// JavaScript code for linked list operations
+// JavaScript code for linked list operations with animations
 class Node {
     constructor(data) {
         this.data = data;
@@ -33,27 +33,32 @@ class LinkedList {
             current.next = newNode;
         }
         this.size++;
-        this.display();
+        this.display('insert', newNode);
     }
 
     removeNode(data) {
         if (!this.head) {
+            alert("The Linked List is Empty");
             return;
         }
         if (this.head.data === data) {
+            this.display('remove', this.head, null);
             this.head = this.head.next;
             this.size--;
-            this.display();
             return;
         }
         let current = this.head;
-        while (current.next) {
-            if (current.next.data === data) {
-                current.next = current.next.next;
+        let prev = null;
+        while (current) {
+            if (current.data === data) {
+                this.display('remove', current, prev);
+                if (prev) {
+                    prev.next = current.next;
+                }
                 this.size--;
-                this.display();
                 return;
             }
+            prev = current;
             current = current.next;
         }
         alert("Node with value " + data + " does not exist.");
@@ -64,26 +69,21 @@ class LinkedList {
             alert("Please provide valid index and data.");
             return;
         }
-        let newNode = new Node(newData);
-        if (index === 0) {
-            newNode.next = this.head.next;
-            this.head = newNode;
-        } else {
-            let current = this.head;
-            let count = 0;
-            while (current && count < index - 1) {
-                current = current.next;
-                count++;
-            }
-            if (current) {
-                newNode.next = current.next ? current.next.next : null;
-                current.next = newNode;
-            }
+        let current = this.head;
+        let count = 0;
+        while (current && count < index) {
+            current = current.next;
+            count++;
         }
-        this.display();
+        if (current) {
+            current.data = newData;
+            this.display('update', current);
+        } else {
+            alert("Node with index " + index + " does not exist.");
+        }
     }
 
-    display() {
+    display(action, node, prevNode) {
         let displayList = document.getElementById('container');
         displayList.innerHTML = '';
         let current = this.head;
@@ -93,15 +93,29 @@ class LinkedList {
             let dataDiv = document.createElement('div');
             dataDiv.className = 'data';
             dataDiv.textContent = current.data;
-            let arrowDiv = document.createElement('div');
-            arrowDiv.className = 'arrow';
-            arrowDiv.textContent = '➜';
+
+            if (action === 'insert' && current === node) {
+                nodeDiv.classList.add('fade-in');
+            }
+
+            if (action === 'update' && current === node) {
+                dataDiv.classList.add('scale-up');
+                dataDiv.classList.add('flip-value');
+            }
+
             nodeDiv.appendChild(dataDiv);
-            nodeDiv.appendChild(arrowDiv);
+
+            if (current.next || this.size >= this.maxSize) {
+                let arrowDiv = document.createElement('div');
+                arrowDiv.className = 'arrow';
+                arrowDiv.textContent = '➜';
+                nodeDiv.appendChild(arrowDiv);
+            }
+
             displayList.appendChild(nodeDiv);
             current = current.next;
         }
-        // If maximum size reached, display "NULL" at the end
+
         if (this.size >= this.maxSize) {
             let nullDiv = document.createElement('div');
             nullDiv.className = 'node';
@@ -110,6 +124,22 @@ class LinkedList {
             nullDataDiv.textContent = 'NULL';
             nullDiv.appendChild(nullDataDiv);
             displayList.appendChild(nullDiv);
+        }
+
+        if (action === 'remove' && node) {
+            this.removeWithAnimation(node);
+        }
+    }
+
+    removeWithAnimation(node) {
+        let displayList = document.getElementById('container');
+        let nodeToRemove = [...displayList.querySelectorAll('.node')].find(n => n.querySelector('.data').textContent == node.data);
+
+        if (nodeToRemove) {
+            nodeToRemove.classList.add('fade-out');
+            setTimeout(() => {
+                nodeToRemove.remove();
+            }, 500);
         }
     }
 }
